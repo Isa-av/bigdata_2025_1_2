@@ -20,5 +20,9 @@ jobs:
         run: python -m venv venv
       - name: Paso 4 - Activar entorno virtual
         run: ./venv/Scripts/activate
-      - name: Paso 5 - Ejecutar Script
-        run: python hola.py
+      - name: Paso 5 - Actualizar pip
+        run: pip install --upgrade pip
+      - name: Paso 6 - Instalar dependencias
+        run: pip install -e .
+      - name: Paso 7 - Ejecutar Script
+        run: python src/edu_bigdata/main.py
