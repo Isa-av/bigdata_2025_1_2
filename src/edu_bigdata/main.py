@@ -2,8 +2,6 @@ from dataweb import DataWeb
 #from database import DataBase
 import pandas as pd
 
-
-
 def main():
     #df = pd.DataFrame()
     dataweb = DataWeb()
