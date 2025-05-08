@@ -31,9 +31,6 @@ jobs:
       - name: Paso 6 - Instalar dependencias
         run: pip install -e .
 
-      - name: Paso 7 - Instalar lxml necesario en este caso
-        run: pip install lxml
-
-      - name: Paso 8 - Ejecutar Script
+      - name: Paso 7 - Ejecutar Script
         run: python src/edu_bigdata/main.py
 

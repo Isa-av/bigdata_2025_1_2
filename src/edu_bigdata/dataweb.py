@@ -8,26 +8,22 @@ class DataWeb:
 
     def obtener_datos(self):
         try:
-            # Establecer un encabezado User-Agent para simular una solicitud de navegador
             headers = {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
             }
 
-            # Realizar la solicitud GET
             response = requests.get(self.url, headers=headers)
 
-            # Verificar si la solicitud fue exitosa
             if response.status_code != 200:
                 print(f"Error al acceder a la página: {response.status_code}")
                 return pd.DataFrame()
 
-            # Leer el contenido HTML y extraer las tablas
             tablas = pd.read_html(StringIO(response.text))
             if not tablas:
                 print("No se encontraron tablas en la página.")
                 return pd.DataFrame()
 
-            df = tablas[0]  # La tabla que queremos es la primera
+            df = tablas[0] 
 
             # Renombrar columnas
             df = df.rename(columns={
@@ -45,7 +41,6 @@ class DataWeb:
                 'World Share': 'participacion_mundial'
             })
 
-            # Limpiar los datos
             df = self.limpiar_datos(df)
 
             return df
