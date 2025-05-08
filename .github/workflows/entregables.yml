@@ -34,3 +34,10 @@ jobs:
       - name: Paso 7 - Ejecutar Script
         run: python src/edu_bigdata/main.py
 
+      - name: Paso 8 - crear commit automatico
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Entrega de la actividad 1
+          commit_user_name: Isabela Arango [GitHub Actions]
+          commit_user_email: isabela.arango@est.iudigital.edu.co
+          commit_author: Isabela Arango <isabela.arango@est.iudigital.edu.co>
