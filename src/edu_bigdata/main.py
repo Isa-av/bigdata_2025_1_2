@@ -1,4 +1,4 @@
-from edu_bigdata.dataweb import DataWeb
+from dataweb import DataWeb
 #from database import DataBase
 import pandas as pd
 
