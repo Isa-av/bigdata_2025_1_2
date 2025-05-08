@@ -8,7 +8,8 @@ setup(
     install_requires=[
         "pandas",
         "openpyxl",
-        "request",
-        "BeautifulSoup4"
+        "requests",
+        "beautifulSoup4",
+        "lxml"
     ]
 )
