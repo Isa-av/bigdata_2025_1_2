@@ -3,6 +3,7 @@ name: Entregables
 on:
   push:
     branches: [ main ]
+
 jobs:
   build:
     runs-on: windows-latest
@@ -12,17 +13,26 @@ jobs:
     steps:
       - name: Paso 1 - Checkout Repositorio
         uses: actions/checkout@v4
+
       - name: Paso 2 - Setup python
         uses: actions/setup-python@v5
         with:
           python-version: '3.9.2'
+
       - name: Paso 3 - Crear entorno virtual
         run: python -m venv venv
+
       - name: Paso 4 - Activar entorno virtual
         run: ./venv/Scripts/activate
+
       - name: Paso 5 - Actualizar pip
         run: pip install --upgrade pip
-      - name: Paso 6 - Instalar dependecias
-        run: pip install -e .
-      - name: Paso 5 - Ejecutar Script
+
+      - name: Paso 6 - Instalar dependencias
+        run: |
+          pip install -e .
+          pip install lxml
+
+      - name: Paso 7 - Ejecutar Script
         run: python src/edu_bigdata/main.py
+
